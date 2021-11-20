@@ -3,17 +3,15 @@ import axios from 'axios';
 import './App.css';
 import Coin from './Coin';
 
-
-
 function App() {
 
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState('');
   const [page, setPage] = useState(1);
-
+  const coinsPerPage = 10;
 
   useEffect(() => {
-    const URL = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}&sparkline=false`;
+    const URL = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`;
     const fetchData = async () => {
       try {
         const { data } = await axios.get(URL);
@@ -30,7 +28,10 @@ function App() {
     setSearch(e.target.value)
   }
 
-  const filteredCoins = coins.filter(coin => coin.name.toLowerCase().includes(search.toLowerCase()));
+  const lastCoin = page * coinsPerPage;
+  const firstCoin = lastCoin - coinsPerPage;
+  const pageCoins = coins.slice(firstCoin, lastCoin);
+  const searchCoins = coins.filter(coin => coin.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <div className="coin-app">
@@ -41,24 +42,40 @@ function App() {
         </form>
       </div>
       <div className='buttons'>
-        {page > 1 ? <button className='button' onClick={() => setPage(page - 1)}>Prev</button> : ''}
-        <button className='button' onClick={() => setPage(page + 1)}>Next</button>
+        {page > 1 ? <button className='button prev' onClick={() => setPage(page - 1)}>Prev</button> : ''}
+        {page < (Math.ceil(coins.length / coinsPerPage)) ? <button className='button next' onClick={() => setPage(page + 1)}>Next</button> : ''}
       </div>
 
-      {filteredCoins.map(coin => {
-        return (
-          <Coin
-            key={coin.id}
-            name={coin.name}
-            image={coin.image}
-            price={coin.current_price}
-            symbol={coin.symbol}
-            marketcap={coin.market_cap}
-            priceChange={coin.price_change_percentage_24h}
-            volume={coin.total_volume}
-          />
-        )
-      })}
+      {search.length ?
+        searchCoins.map(coin => {
+          return (
+            <Coin
+              key={coin.id}
+              name={coin.name}
+              image={coin.image}
+              price={coin.current_price}
+              symbol={coin.symbol}
+              marketcap={coin.market_cap}
+              priceChange={coin.price_change_percentage_24h}
+              volume={coin.total_volume}
+            />
+          )
+        })
+        : pageCoins.map(coin => {
+          return (
+            <Coin
+              key={coin.id}
+              name={coin.name}
+              image={coin.image}
+              price={coin.current_price}
+              symbol={coin.symbol}
+              marketcap={coin.market_cap}
+              priceChange={coin.price_change_percentage_24h}
+              volume={coin.total_volume}
+            />
+          )
+        })}
+
     </div>
   );
 }
