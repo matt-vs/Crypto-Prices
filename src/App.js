@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import Coin from './Coin';
+import Buttons from './Buttons';
 
 function App() {
 
@@ -23,9 +24,9 @@ function App() {
     fetchData();
   }, [])
 
-  const handleChange = e => {
-    setSearch(e.target.value)
-  }
+  const handleChange = e => setSearch(e.target.value);
+  const pageUp = () => setPage(page + 1);
+  const pageDown = () => setPage(page - 1);
 
   const coinsPerPage = 10;
   const lastCoin = page * coinsPerPage;
@@ -41,14 +42,8 @@ function App() {
           <input type='text' className='coin-input' placeholder='Search' onChange={handleChange} />
         </form>
       </div>
-      <div className='buttons'>
-        <button className={page > 1 ? 'button active' : 'disabled'} disabled={page > 1 ? false : true} onClick={() => setPage(page - 1)}>Prev</button>
-        <button
-          className={page < (Math.ceil(coins.length / coinsPerPage)) ? 'button active' : 'disabled'}
-          disabled={page < (Math.ceil(coins.length / coinsPerPage)) ? false : true}
-          onClick={() => setPage(page + 1)}>Next
-        </button>
-      </div>
+
+      <Buttons page={page} coinsPerPage={coinsPerPage} coins={coins} pageUp={pageUp} pageDown={pageDown} />
 
       {search.length ?
         searchCoins.map(coin => {
@@ -80,14 +75,7 @@ function App() {
           )
         })}
 
-      <div className='buttons'>
-        <button className={page > 1 ? 'button active' : 'disabled'} disabled={page > 1 ? false : true} onClick={() => setPage(page - 1)}>Prev</button>
-        <button
-          className={page < (Math.ceil(coins.length / coinsPerPage)) ? 'button active' : 'disabled'}
-          disabled={page < (Math.ceil(coins.length / coinsPerPage)) ? false : true}
-          onClick={() => setPage(page + 1)}>Next
-        </button>
-      </div>
+      <Buttons page={page} coinsPerPage={coinsPerPage} coins={coins} pageUp={pageUp} pageDown={pageDown} />
 
     </div >
   );
