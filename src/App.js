@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
-import Coin from './Coin';
 import Buttons from './Buttons';
+import CoinList from './CoinList';
 
 function App() {
 
@@ -45,35 +45,7 @@ function App() {
 
       <Buttons page={page} coinsPerPage={coinsPerPage} coins={coins} pageUp={pageUp} pageDown={pageDown} />
 
-      {search.length ?
-        searchCoins.map(coin => {
-          return (
-            <Coin
-              key={coin.id}
-              name={coin.name}
-              image={coin.image}
-              price={coin.current_price}
-              symbol={coin.symbol}
-              marketcap={coin.market_cap}
-              priceChange={coin.price_change_percentage_24h}
-              volume={coin.total_volume}
-            />
-          )
-        })
-        : pageCoins.map(coin => {
-          return (
-            <Coin
-              key={coin.id}
-              name={coin.name}
-              image={coin.image}
-              price={coin.current_price}
-              symbol={coin.symbol}
-              marketcap={coin.market_cap}
-              priceChange={coin.price_change_percentage_24h}
-              volume={coin.total_volume}
-            />
-          )
-        })}
+      {search.length ? <CoinList coins={searchCoins} /> : <CoinList coins={pageCoins} />}
 
       <Buttons page={page} coinsPerPage={coinsPerPage} coins={coins} pageUp={pageUp} pageDown={pageDown} />
 
