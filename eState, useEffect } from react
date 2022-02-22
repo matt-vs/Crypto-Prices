@@ -1,0 +1,72 @@
+[33mcommit d421486108300c19055d7f4e37007f535eb46a6d[m[33m ([m[1;36mHEAD[m[33m, [m[1;32mpaginationV1[m[33m)[m
+Author: mattvidakis <88048336+mattvidakis@users.noreply.github.com>
+Date:   Tue Feb 22 11:52:20 2022 -0500
+
+    another pagination version
+
+[33mcommit 220bd6e39671a528ae4ca7ccd9eebed8eda21978[m[33m ([m[1;31morigin/paginationv1[m[33m, [m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: mattvidakis <88048336+mattvidakis@users.noreply.github.com>
+Date:   Sun Nov 21 16:50:08 2021 -0500
+
+    created CoinList component
+
+[33mcommit db2315c9dc0e96bc9553aa32f1aead11dc4f321b[m[33m ([m[1;32mCoinList[m[33m)[m
+Author: mattvidakis <88048336+mattvidakis@users.noreply.github.com>
+Date:   Sun Nov 21 11:24:40 2021 -0500
+
+    add button component
+
+[33mcommit 15e9edeb1d90d49e9fa4d9f6337dd068553f2f32[m
+Merge: fd88490 2c4ac0e
+Author: mattvidakis <88048336+mattvidakis@users.noreply.github.com>
+Date:   Sat Nov 20 14:40:59 2021 -0500
+
+    Merge branch 'master' of https://github.com/mattvidakis/Crypto-Prices
+
+[33mcommit fd88490035dd46e72f664525b305f7e335de5af7[m
+Author: mattvidakis <88048336+mattvidakis@users.noreply.github.com>
+Date:   Sat Nov 20 14:17:00 2021 -0500
+
+    changed coinsPerPage line
+
+[33mcommit c2cda55c715d93f9a7c92f76cb9aa7d8bb45becb[m
+Author: mattvidakis <88048336+mattvidakis@users.noreply.github.com>
+Date:   Fri Nov 19 19:01:45 2021 -0500
+
+    version 2 pagination
+
+[33mcommit d6f125e8f1e36c50567c0f2812a40ef45892206e[m
+Author: mattvidakis <88048336+mattvidakis@users.noreply.github.com>
+Date:   Fri Nov 19 18:14:23 2021 -0500
+
+    version 1 pagination
+
+[33mcommit 2c4ac0e99b9ef6f6994946d926b08c0b95917019[m
+Author: matt-vs <88048336+matt-vs@users.noreply.github.com>
+Date:   Mon Oct 4 13:46:55 2021 -0400
+
+    Update README.md
+
+[33mcommit 2dead49d6033d2c665d3aa9bc20930560fb53717[m
+Author: matt-vs <88048336+matt-vs@users.noreply.github.com>
+Date:   Mon Oct 4 13:46:21 2021 -0400
+
+    Update README.md
+
+[33mcommit 5a2b803c801608ba9cdcc02aa028de9c2a06d58b[m
+Author: mattvidakis <88048336+mattvidakis@users.noreply.github.com>
+Date:   Tue Sep 21 13:01:20 2021 -0400
+
+    Update README.md
+
+[33mcommit bde767440c264dc75c9769774eee622e6407a452[m[33m ([m[1;31mheroku/master[m[33m)[m
+Author: Matt V <matthewvidakis@gmail.com>
+Date:   Mon Sep 20 13:55:49 2021 -0400
+
+    first commit
+
+[33mcommit 825c4b994524756ba843c5d03f0f7d65adf19a5e[m
+Author: Matt V <matthewvidakis@gmail.com>
+Date:   Mon Sep 20 10:10:57 2021 -0400
+
+    Initialize project using Create React App
